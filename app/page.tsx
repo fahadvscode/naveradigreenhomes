@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { AmpLink } from "@/components/AmpLink";
 import { ConfirmedVsTba } from "@/components/ConfirmedVsTba";
 import { FadeIn } from "@/components/FadeIn";
 import { FaqList } from "@/components/FaqList";
@@ -32,6 +33,7 @@ export default function HomePage() {
   const homeFaqs = faqsById(HOME_FAQ_IDS);
   return (
     <>
+      <AmpLink path={PAGES.home.path} />
       <JsonLd
         data={[
           webPageLd({ name: PAGES.home.h1, path: PAGES.home.path, description: PAGES.home.description }),

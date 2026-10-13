@@ -3,7 +3,7 @@ import { SITE_URL } from "@/lib/content";
 
 const allow = ["Googlebot", "Googlebot-Image", "Bingbot", "GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-Web", "anthropic-ai", "PerplexityBot", "Google-Extended", "Applebot-Extended", "CCBot"];
 
-const closed = ["/thank-you", "/api/"];
+const closed = ["/thank-you", "/api/", "/amp-doc"];
 
 export default function robots(): MetadataRoute.Robots {
   return {

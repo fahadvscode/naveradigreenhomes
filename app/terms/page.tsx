@@ -1,3 +1,4 @@
+import { AmpLink } from "@/components/AmpLink";
 import { Blocks } from "@/components/Blocks";
 import { JsonLd } from "@/components/JsonLd";
 import { MidForm } from "@/components/MidForm";
@@ -10,6 +11,7 @@ export const metadata = pageMeta(PAGES.terms);
 export default function TermsPage() {
   return (
     <>
+      <AmpLink path={PAGES.terms.path} />
       <JsonLd
         data={[
           webPageLd({
