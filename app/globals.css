@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #2f4a3a;
+  --color-brand-deep: #1d2f25;
+  --color-brand-accent: #b07a54;
+  --color-brand-accent-ink: #8f5b38;
+  --color-surface: #faf7f0;
+  --color-surface-alt: #efe9db;
+  --color-text-primary: #1b1f1c;
+  --color-text-muted: #5a625c;
+  --color-text-on-dark: #e7e1d6;
+  --color-border: #d9d2c0;
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --container-page: 1180px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+    overflow-x: clip;
+  }
+
+  body.has-consent-note {
+    padding-bottom: 3.25rem;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1.08;
+  }
+
+  h1 {
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-accent-ink);
+    outline-offset: 3px;
+  }
+}
+
+.page-wrap {
+  width: min(calc(100% - 2rem), var(--container-page));
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .page-wrap {
+    width: min(calc(100% - 4rem), var(--container-page));
+  }
+}
+
+.section {
+  padding-block: 4.5rem;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-block: 6.5rem;
+  }
+}
+
+.measure {
+  max-width: 66ch;
+}
+
+.rule-title {
+  display: block;
+  width: 3.5rem;
+  height: 2px;
+  margin-top: 0.9rem;
+  background: var(--color-brand-accent-ink);
+}
+
+.prose-link {
+  color: var(--color-brand-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.fact-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.fact-table th,
+.fact-table td {
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.95rem 0;
+  vertical-align: top;
+}
+
+.fact-table th {
+  width: 38%;
+  padding-right: 1.25rem;
+  font-weight: 600;
+  color: var(--color-brand-primary);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.75rem 1.25rem;
+  border: 0;
+  border-radius: 0;
+  background: var(--color-brand-deep);
+  color: var(--color-surface);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--color-brand-primary);
+}
+
+.btn:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.field {
+  width: 100%;
+  min-height: 48px;
+  border: 0;
+  border-bottom: 1px solid var(--color-brand-primary);
+  border-radius: 0;
+  background: transparent;
+  padding: 0.55rem 0;
+  color: var(--color-text-primary);
+}
+
+.field:focus {
+  outline: none;
+  border-bottom-color: var(--color-brand-accent-ink);
+  border-bottom-width: 2px;
+}
+
+.choice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  border: 1px solid var(--color-brand-primary);
+  background: transparent;
+  color: var(--color-brand-deep);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.choice-on {
+  background: var(--color-brand-deep);
+  color: var(--color-surface);
+}
+
+.lead-form[data-tone="ink"] .field {
+  border-bottom-color: var(--color-text-on-dark);
+  color: var(--color-surface);
+  caret-color: var(--color-surface);
+}
+
+.lead-form[data-tone="ink"] .choice {
+  border-color: var(--color-text-on-dark);
+  color: var(--color-text-on-dark);
+}
+
+.lead-form[data-tone="ink"] .choice-on {
+  background: var(--color-surface);
+  color: var(--color-brand-deep);
+}
+
+.lead-form[data-tone="ink"] .form-alert {
+  color: var(--color-surface);
+}
+
+.hp {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+::selection {
+  background: var(--color-brand-primary);
+  color: var(--color-surface);
+}
